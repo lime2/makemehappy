@@ -7,11 +7,11 @@
         <img id="hunger">
         <script defer>
             function hunger() {
-                fetch('http://localhost:3000/getquote')
+                fetch('https://makemehappy.onrender.com/getquote')
                     .then(response => response.text())
                     .then(data => document.getElementById('quote').innerText = data)
 
-                fetch('http://localhost:3000/getimage')
+                fetch('https://makemehappy.onrender.com/getimage')
                     .then(response => response.blob())
                     .then(data => document.getElementById('hunger').src = URL.createObjectURL(data))
             }
