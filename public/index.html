@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="quote"></div>
+        <img id="hunger">
+        <script defer>
+            function hunger() {
+                fetch('http://localhost:3000/getquote')
+                    .then(response => response.text())
+                    .then(data => document.getElementById('quote').innerText = data)
+
+                fetch('http://localhost:3000/getimage')
+                    .then(response => response.blob())
+                    .then(data => document.getElementById('hunger').src = URL.createObjectURL(data))
+            }
+
+            hunger()
+            function moreHunger() {
+                setInterval(hunger,100)
+            }
+        </script>
+        <button onclick=moreHunger()>I am hungry</button>
+    </body>
+</html>
